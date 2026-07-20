@@ -1,0 +1,29 @@
+{{ $u := .Permalink }}
+{{ if .IsPage }}
+  {{ if eq .Type "product" }}
+    {{/* ---- Product schema ---- */}}
+    {{ $s := dict "@context" "https://schema.org" "@type" "Product" "name" (default .Title .Params.product_name) "description" .Description "url" $u "sku" .Params.sku "mpn" .Params.mpn }}
+    {{ with .Params.brand }}{{ $s = merge $s (dict "brand" (dict "@type" "Brand" "name" .)) }}{{ end }}
+    {{ with .Params.images }}{{ $s = merge $s (dict "image" (index . 0 | absURL)) }}{{ end }}
+    {{ if or .Params.price .Params.availability }}
+      {{ $off := dict "@type" "Offer" "url" $u "priceCurrency" (default "USD" .Params.currency) }}
+      {{ with .Params.price }}{{ $off = merge $off (dict "price" .) }}{{ end }}
+      {{ with .Params.availability }}{{ $off = merge $off (dict "availability" (printf "https://schema.org/%s" .)) }}{{ end }}
+      {{ $s = merge $s (dict "offers" $off) }}
+    {{ end }}
+<script type="application/ld+json">{{ $s | jsonify | safeJS }}</script>
+  {{ else }}
+    {{/* ---- Article schema (blog / static pages) ---- */}}
+    {{ $s := dict "@context" "https://schema.org" "@type" "Article" "headline" .Title "description" .Description "url" $u "inLanguage" .Site.Language.Lang }}
+    {{ with .Params.images }}{{ $s = merge $s (dict "image" (index . 0 | absURL)) }}{{ end }}
+    {{ with .Date }}{{ $s = merge $s (dict "datePublished" (.Format "2006-01-02") "dateModified" (.Format "2006-01-02")) }}{{ end }}
+    {{ $s = merge $s (dict "author" (dict "@type" "Organization" "name" .Site.Params.brand_name) "publisher" (dict "@type" "Organization" "name" .Site.Params.brand_name "logo" (dict "@type" "ImageObject" "url" (printf "%s%s" .Site.BaseURL "wp-content/uploads/2024/11/cropped-logo-1-1.png")))) }}
+<script type="application/ld+json">{{ $s | jsonify | safeJS }}</script>
+  {{ end }}
+{{ else }}
+  {{/* ---- Home: Organization + WebSite ---- */}}
+  {{ $org := dict "@context" "https://schema.org" "@type" "Organization" "name" .Site.Params.brand_name "url" .Site.BaseURL "email" .Site.Params.email }}
+<script type="application/ld+json">{{ $org | jsonify | safeJS }}</script>
+  {{ $ws := dict "@context" "https://schema.org" "@type" "WebSite" "name" .Site.Title "url" .Site.BaseURL }}
+<script type="application/ld+json">{{ $ws | jsonify | safeJS }}</script>
+{{ end }}

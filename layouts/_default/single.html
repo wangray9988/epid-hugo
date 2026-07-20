@@ -1,0 +1,13 @@
+{{ define "main" }}
+<article class="page">
+    <div class="container page-content">
+        <nav class="breadcrumb" aria-label="breadcrumb">
+            <a href="{{ .Site.BaseURL }}">{{ i18n "home" }}</a> <span class="sep">/</span>
+            <span>{{ .Title }}</span>
+        </nav>
+        <div class="entry">
+            {{ .Content }}
+        </div>
+    </div>
+</article>
+{{ end }}

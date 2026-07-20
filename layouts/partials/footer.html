@@ -1,0 +1,31 @@
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-widgets">
+            <div class="widget">
+                <h3>{{ .Site.Params.brand_name }}</h3>
+                <p>{{ .Site.Params.company }}</p>
+                <p>{{ .Site.Params.address }}</p>
+                {{ with .Site.Params.email }}<p>{{ . }}</p>{{ end }}
+                {{ with .Site.Params.phone }}<p>{{ . }}</p>{{ end }}
+            </div>
+            <div class="widget">
+                <h4>{{ i18n "products" }}</h4>
+                <ul>
+                {{ range $key, $value := .Site.Params.brands }}
+                    <li><a href="{{ relLangURL (printf "diesel-engines-parts/%s/" $key) }}">{{ $value }}</a></li>
+                {{ end }}
+                </ul>
+            </div>
+            <div class="widget">
+                <h4>{{ i18n "about" }}</h4>
+                <ul>
+                    <li><a href="{{ relLangURL "about-us/" }}">{{ i18n "about" }}</a></li>
+                    <li><a href="{{ relLangURL "contact/" }}">{{ i18n "contact" }}</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; {{ now.Year }} {{ .Site.Params.brand_name }}. {{ .Site.Params.company }}</p>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,26 @@
+[home]
+other = "Accueil"
+
+[products]
+other = "Produits"
+
+[about]
+other = "À propos"
+
+[contact]
+other = "Contact"
+
+[view_more]
+other = "Voir plus"
+
+[inquiry]
+other = "Demander un devis"
+
+[brand]
+other = "Marque"
+
+[price]
+other = "Prix"
+
+[availability]
+other = "Disponibilité"

@@ -1,0 +1,26 @@
+[home]
+other = "Home"
+
+[products]
+other = "Products"
+
+[about]
+other = "About Us"
+
+[contact]
+other = "Contact"
+
+[view_more]
+other = "View More"
+
+[inquiry]
+other = "Send Inquiry"
+
+[brand]
+other = "Brand"
+
+[price]
+other = "Price"
+
+[availability]
+other = "Availability"

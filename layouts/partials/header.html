@@ -1,0 +1,22 @@
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="{{ .Site.BaseURL }}" class="logo">{{ .Site.Params.brand_name }}</a>
+        <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.main-nav').classList.toggle('open')">☰</button>
+        <nav class="main-nav">
+            {{ range .Site.Menus.main }}
+                {{ $url := .URL }}
+                {{ with .Page }}{{ $url = .RelPermalink }}{{ end }}
+                <a href="{{ $url }}" class="{{ if $.IsMenuCurrent "main" . }}active{{ end }}">{{ .Name }}</a>
+            {{ end }}
+        </nav>
+        <div class="lang-switch">
+            {{ $home := .Site.Home }}
+            {{ range .Site.Languages }}
+                {{ $lang := . }}
+                {{ $trans := $home }}
+                {{ with $.Translations }}{{ range . }}{{ if eq .Language.Lang $lang.Lang }}{{ $trans = . }}{{ end }}{{ end }}{{ end }}
+                <a href="{{ $trans.RelPermalink }}" hreflang="{{ $lang.Lang }}" lang="{{ $lang.Lang }}" class="{{ if eq $lang.Lang $.Site.Language.Lang }}active{{ end }}">{{ $lang.LanguageName }}</a>
+            {{ end }}
+        </div>
+    </div>
+</header>

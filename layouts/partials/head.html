@@ -1,0 +1,33 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}</title>
+{{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+{{/* hreflang alternates - Hugo auto-links translations across languages */}}
+{{ range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+{{ end }}
+<link rel="alternate" hreflang="x-default" href="{{ .Site.BaseURL }}">
+
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{/* Open Graph */}}
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ with .Description }}<meta property="og:description" content="{{ . }}">{{ end }}
+<meta property="og:site_name" content="{{ .Site.Title }}">
+{{ with .Params.images }}<meta property="og:image" content="{{ index . 0 | absURL }}">{{ end }}
+
+{{/* Twitter */}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
+{{ with .Description }}<meta name="twitter:description" content="{{ . }}">{{ end }}
+{{ with .Params.images }}<meta name="twitter:image" content="{{ index . 0 | absURL }}">{{ end }}
+
+{{/* Structured data */}}
+{{ partial "schema.html" . }}
+
+<link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+{{ if eq .Site.Language.Lang "ar" }}<link rel="stylesheet" href="{{ "css/rtl.css" | relURL }}">{{ end }}

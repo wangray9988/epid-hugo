@@ -1,0 +1,10 @@
+/* Right-to-left adjustments for Arabic (dir="rtl" is set on <html>) */
+body { font-family: "Segoe UI", Tahoma, "Noto Sans Arabic", "Helvetica Neue", Arial, sans-serif; }
+.breadcrumb, .entry, .product-entry, .footer-widgets { direction: rtl; text-align: start; }
+.main-nav, .lang-switch { direction: ltr; }
+.elementor-container { direction: rtl; }
+.product-layout { direction: rtl; }
+.product-meta { direction: rtl; text-align: start; }
+.site-footer { direction: rtl; }
+.site-footer .footer-widgets { direction: rtl; }
+.entry blockquote, .product-entry blockquote { border-inline-start: 0; border-inline-end: 4px solid var(--primary); }

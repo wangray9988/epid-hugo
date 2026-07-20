@@ -1,0 +1,26 @@
+[home]
+other = "الرئيسية"
+
+[products]
+other = "المنتجات"
+
+[about]
+other = "من نحن"
+
+[contact]
+other = "اتصل بنا"
+
+[view_more]
+other = "عرض المزيد"
+
+[inquiry]
+other = "إرسال استفسار"
+
+[brand]
+other = "العلامة التجارية"
+
+[price]
+other = "السعر"
+
+[availability]
+other = "التوفر"

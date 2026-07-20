@@ -1,0 +1,111 @@
+# DieselEngineParts.top Hugo Configuration
+# Multilingual: English (root), Arabic (/ar/, RTL), Spanish (/es/)
+
+baseURL = "https://chinaengineparts.top/"
+title = "EPID Diesel Engine Parts"
+locale = "en-US"
+defaultContentLanguage = "en"
+enableRobotsTXT = true
+hasCJKLanguage = true
+timeout = 60000
+uglyURLs = false
+
+# Multilingual config
+[languages]
+  [languages.en]
+    weight = 1
+    locale = "en-US"
+    label = "English"
+    contentDir = "content"
+    languageDirection = "ltr"
+
+  [languages.ar]
+    weight = 2
+    locale = "ar"
+    label = "العربية"
+    contentDir = "content/ar"
+    languageDirection = "rtl"
+
+  [languages.es]
+    weight = 3
+    locale = "es"
+    label = "Español"
+    contentDir = "content/es"
+    languageDirection = "ltr"
+
+  [languages.fr]
+    weight = 4
+    locale = "fr"
+    label = "Français"
+    contentDir = "content/fr"
+    languageDirection = "ltr"
+
+  [languages.de]
+    weight = 5
+    locale = "de"
+    label = "Deutsch"
+    contentDir = "content/de"
+    languageDirection = "ltr"
+
+# Taxonomies
+[taxonomies]
+  brand = "brands"
+  category = "categories"
+
+# Menus (main)
+[[menus.main]]
+  name = "Home"
+  pageRef = "/"
+  weight = 1
+
+[[menus.main]]
+  name = "Products"
+  pageRef = "/diesel-engines-parts/"
+  weight = 2
+
+[[menus.main]]
+  name = "About"
+  pageRef = "/about-us/"
+  weight = 3
+
+[[menus.main]]
+  name = "Contact"
+  pageRef = "/contact/"
+  weight = 4
+
+[params]
+  company = "Henan Engine Pentium Industrial Development Co., Ltd."
+  brand_name = "EPID"
+  logo = "/wp-content/uploads/2024/11/cropped-logo-1-1.png"
+  phone = "+86-XXX-XXXX-XXXX"
+  email = "sales@epidparts.com"
+  address = "Zhengzhou, Henan, China"
+
+[params.brands]
+  weichai = "Weichai"
+  baudouin = "Baudouin"
+  yuchai = "Yuchai"
+  caterpillar = "Caterpillar"
+  cummins = "Cummins"
+  "faw-xichai" = "FAW Xichai"
+  sinotruk = "Sinotruk"
+  "xcmg-oil" = "XCMG Oil"
+
+# Allow migrated raw HTML in page content (.Content carries Elementor markup)
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[minify]
+  disableXML = false
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepWhitespace = false
+    [minify.tdewolff.css]
+      keepWhitespace = false
+
+[imaging]
+  resampleStyle = "lanczos"
+  quality = 82
+  anchor = "smart"

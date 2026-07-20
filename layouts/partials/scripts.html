@@ -1,0 +1,10 @@
+{{/* Minimal JS: mobile nav toggle only. No external dependencies. */}}
+<script>
+(function(){
+  var t = document.querySelector('.nav-toggle');
+  if (!t) return;
+  t.addEventListener('click', function(){
+    document.querySelector('.main-nav').classList.toggle('open');
+  });
+})();
+</script>

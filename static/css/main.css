@@ -1,0 +1,147 @@
+:root {
+    --primary: #d4202a;
+    --primary-dark: #a3141c;
+    --text: #1f2329;
+    --text-light: #5b6470;
+    --bg: #ffffff;
+    --bg-light: #f5f7fa;
+    --border: #e3e8ef;
+    --max-width: 1200px;
+    --header-height: 68px;
+    --radius: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 16px;
+}
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--primary-dark); }
+img { max-width: 100%; height: auto; }
+ul, ol { padding-left: 1.4rem; }
+h1, h2, h3, h4 { line-height: 1.3; color: var(--text); }
+
+/* ---------- Header ---------- */
+.site-header {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+    height: var(--header-height);
+    display: flex; align-items: center;
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; position: relative; }
+.logo { font-size: 1.4rem; font-weight: 800; color: var(--primary); white-space: nowrap; }
+.main-nav { display: flex; gap: 1.6rem; align-items: center; }
+.main-nav a { color: var(--text); font-weight: 600; font-size: 0.95rem; }
+.main-nav a.active, .main-nav a:hover { color: var(--primary); }
+.lang-switch { display: flex; gap: 0.75rem; align-items: center; margin-inline-start: 0.5rem; }
+.lang-switch a { color: var(--text-light); font-size: 0.85rem; padding: 2px 6px; border: 1px solid var(--border); border-radius: 4px; }
+.lang-switch a.active, .lang-switch a:hover { color: #fff; background: var(--primary); border-color: var(--primary); }
+.nav-toggle { display: none; background: none; border: 0; font-size: 1.6rem; cursor: pointer; color: var(--text); }
+
+/* ---------- Buttons ---------- */
+.btn, .elementor-button, .elementor-button-link {
+    display: inline-block; background: var(--primary); color: #fff !important;
+    padding: 0.7rem 1.8rem; border-radius: var(--radius); font-weight: 700; border: 0; cursor: pointer;
+}
+.btn:hover, .elementor-button:hover { background: var(--primary-dark); color: #fff; }
+
+/* ---------- Breadcrumb ---------- */
+.breadcrumb { padding: 1rem 0; color: var(--text-light); font-size: 0.88rem; flex-wrap: wrap; }
+.breadcrumb a { color: var(--text-light); }
+.breadcrumb a:hover { color: var(--primary); }
+.breadcrumb .sep { margin: 0 0.5rem; opacity: 0.6; }
+
+/* ---------- Page / Entry content ---------- */
+.page-content { max-width: var(--max-width); margin: 0 auto; padding: 2rem 20px 3rem; }
+.entry, .product-entry { font-size: 1rem; }
+.entry p, .product-entry p { margin-bottom: 1.1rem; }
+.entry h1, .entry h2, .entry h3, .product-entry h1, .product-entry h2, .product-entry h3 { margin: 1.6rem 0 0.9rem; }
+.entry ul, .entry ol, .product-entry ul, .product-entry ol { margin-bottom: 1.1rem; }
+.entry img, .product-entry img { border-radius: var(--radius); margin: 1rem 0; }
+.entry table, .product-entry table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; }
+.entry th, .entry td, .product-entry th, .product-entry td { border: 1px solid var(--border); padding: 0.6rem 0.8rem; text-align: start; }
+.entry blockquote, .product-entry blockquote { border-inline-start: 4px solid var(--primary); margin: 1.2rem 0; padding: 0.5rem 1rem; background: var(--bg-light); }
+.spec-box { border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.2rem; background: var(--bg-light); margin: 1.2rem 0; }
+.cta { background: var(--primary); color: #fff; padding: 1.2rem 1.5rem; border-radius: var(--radius); margin: 1.5rem 0; text-align: center; font-weight: 600; }
+
+/* ---------- Elementor content compatibility ---------- */
+.elementor-section { padding: 1.25rem 0; position: relative; }
+.elementor-container { display: flex; flex-wrap: wrap; max-width: var(--max-width); margin: 0 auto; }
+.elementor-column { min-width: 0; }
+.elementor-widget-wrap { padding: 0.5rem; }
+.elementor-heading-title { margin: 0 0 0.8rem; }
+.elementor-widget-image img, .elementor-image img { max-width: 100%; height: auto; border-radius: var(--radius); }
+.elementor-image-gallery .gallery-item, .elementor-image-carousel .swiper-slide { margin: 0; }
+.elementor-divider { margin: 1rem 0; }
+.elementor-divider-separator { border-top: 1px solid var(--border); display: block; }
+.elementor-icon-list-items { list-style: none; padding: 0; margin: 0; }
+.elementor-icon-list-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0; }
+.elementor-icon-box-wrapper { display: flex; gap: 1rem; padding: 0.75rem 0; }
+.elementor-spacer { height: 1rem; }
+/* column widths (Elementor external CSS is absent, emulate it) */
+.elementor-col-100 { width: 100%; }
+.elementor-col-75 { width: 75%; }
+.elementor-col-66, .elementor-col-2-3 { width: 66.6666%; }
+.elementor-col-60 { width: 60%; }
+.elementor-col-50 { width: 50%; }
+.elementor-col-40 { width: 40%; }
+.elementor-col-33, .elementor-col-1-3 { width: 33.3333%; }
+.elementor-col-25, .elementor-col-1-4 { width: 25%; }
+.elementor-col-20 { width: 20%; }
+
+/* ---------- Product page ---------- */
+.product-layout { display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; margin: 2rem 0; align-items: start; }
+.product-gallery img { width: 100%; border-radius: var(--radius); margin-bottom: 1rem; border: 1px solid var(--border); }
+.product-meta { background: var(--bg-light); padding: 1.5rem; border-radius: var(--radius); position: sticky; top: calc(var(--header-height) + 1rem); }
+.meta-title { font-size: 1.4rem; margin-bottom: 0.5rem; }
+.meta-desc { color: var(--text-light); margin-bottom: 1rem; }
+.product-meta dl { margin: 0 0 1.2rem; }
+.product-meta dt { font-weight: 700; color: var(--text-light); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; margin-top: 0.8rem; }
+.product-meta dd { margin: 0 0 0.3rem; font-weight: 600; }
+.product-meta .btn { width: 100%; text-align: center; }
+
+/* ---------- Grid / Cards (listing) ---------- */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+.card { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; background: #fff; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+.card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.card-body { padding: 1.2rem; }
+.card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+.card p { color: var(--text-light); font-size: 0.88rem; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: #14181f; color: #c7cdd6; padding: 3rem 0 1.5rem; margin-top: 4rem; }
+.footer-widgets { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+.footer-widgets h3, .footer-widgets h4 { color: #fff; margin-bottom: 1rem; }
+.footer-widgets ul { list-style: none; padding: 0; }
+.footer-widgets li { margin-bottom: 0.5rem; }
+.footer-widgets a { color: #aeb6c2; }
+.footer-widgets a:hover { color: #fff; }
+.footer-bottom { border-top: 1px solid #2a313c; padding-top: 1.2rem; text-align: center; color: #7c8593; font-size: 0.85rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+    .product-layout { grid-template-columns: 1fr; }
+    .product-meta { position: static; }
+    .footer-widgets { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    .nav-toggle { display: block; }
+    .main-nav {
+        display: none; position: absolute; top: var(--header-height); left: 0; right: 0;
+        background: #fff; flex-direction: column; gap: 0; padding: 0.5rem 1rem;
+        border-bottom: 1px solid var(--border); box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+    .main-nav.open { display: flex; }
+    .main-nav a { padding: 0.7rem 0; border-bottom: 1px solid var(--border); }
+    .elementor-col-75, .elementor-col-66, .elementor-col-2-3, .elementor-col-60,
+    .elementor-col-50, .elementor-col-40, .elementor-col-33, .elementor-col-1-3,
+    .elementor-col-25, .elementor-col-1-4, .elementor-col-20 { width: 100%; }
+}

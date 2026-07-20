@@ -1,0 +1,38 @@
+{{ define "main" }}
+<article class="product">
+    <div class="container">
+        <nav class="breadcrumb" aria-label="breadcrumb">
+            <a href="{{ .Site.BaseURL }}">{{ i18n "home" }}</a> <span class="sep">/</span>
+            <a href="{{ relLangURL "diesel-engines-parts/" }}">{{ i18n "products" }}</a> <span class="sep">/</span>
+            <a href="{{ relLangURL (printf "diesel-engines-parts/%s/" .Params.brand_slug) }}">{{ .Params.brand }}</a> <span class="sep">/</span>
+            <span>{{ .Title }}</span>
+        </nav>
+
+        <div class="product-layout">
+            <div class="product-gallery">
+                {{ with .Params.images }}
+                    {{ range . }}
+                        <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+                    {{ end }}
+                {{ end }}
+            </div>
+            <aside class="product-meta">
+                <h2 class="meta-title">{{ .Params.product_name | default .Title }}</h2>
+                {{ with .Description }}<p class="meta-desc">{{ . }}</p>{{ end }}
+                <dl>
+                    {{ with .Params.brand }}<dt>{{ i18n "brand" | default "Brand" }}</dt><dd>{{ . }}</dd>{{ end }}
+                    {{ with .Params.sku }}<dt>SKU</dt><dd>{{ . }}</dd>{{ end }}
+                    {{ with .Params.mpn }}<dt>MPN</dt><dd>{{ . }}</dd>{{ end }}
+                    {{ with .Params.price }}<dt>{{ i18n "price" | default "Price" }}</dt><dd>{{ . }} {{ .Params.currency | default "USD" }}</dd>{{ end }}
+                    {{ with .Params.availability }}<dt>{{ i18n "availability" | default "Availability" }}</dt><dd>{{ . }}</dd>{{ end }}
+                </dl>
+                <a href="{{ relLangURL "contact/" }}" class="btn">{{ i18n "inquiry" }}</a>
+            </aside>
+        </div>
+
+        <div class="entry product-entry">
+            {{ .Content }}
+        </div>
+    </div>
+</article>
+{{ end }}

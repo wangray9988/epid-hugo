@@ -1,0 +1,26 @@
+[home]
+other = "Startseite"
+
+[products]
+other = "Produkte"
+
+[about]
+other = "Über uns"
+
+[contact]
+other = "Kontakt"
+
+[view_more]
+other = "Mehr ansehen"
+
+[inquiry]
+other = "Anfrage senden"
+
+[brand]
+other = "Marke"
+
+[price]
+other = "Preis"
+
+[availability]
+other = "Verfügbarkeit"
