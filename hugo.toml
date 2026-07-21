@@ -14,42 +14,42 @@ uglyURLs = false
 [languages]
   [languages.en]
     weight = 1
-    locale = "en-US"
-    label = "English"
     contentDir = "content"
     [languages.en.params]
+      locale = "en-US"
+      label = "English"
       Direction = "ltr"
 
   [languages.ar]
     weight = 2
-    locale = "ar"
-    label = "العربية"
     contentDir = "content/ar"
     [languages.ar.params]
+      locale = "ar"
+      label = "العربية"
       Direction = "rtl"
 
   [languages.es]
     weight = 3
-    locale = "es"
-    label = "Español"
     contentDir = "content/es"
     [languages.es.params]
+      locale = "es"
+      label = "Español"
       Direction = "ltr"
 
   [languages.fr]
     weight = 4
-    locale = "fr"
-    label = "Français"
     contentDir = "content/fr"
     [languages.fr.params]
+      locale = "fr"
+      label = "Français"
       Direction = "ltr"
 
   [languages.de]
     weight = 5
-    locale = "de"
-    label = "Deutsch"
     contentDir = "content/de"
     [languages.de.params]
+      locale = "de"
+      label = "Deutsch"
       Direction = "ltr"
 
 # Taxonomies
@@ -103,14 +103,3 @@ uglyURLs = false
       unsafe = true
 
 [minify]
-  disableXML = false
-  [minify.tdewolff]
-    [minify.tdewolff.html]
-      keepWhitespace = false
-    [minify.tdewolff.css]
-      keepWhitespace = false
-
-[imaging]
-  resampleStyle = "lanczos"
-  quality = 82
-  anchor = "smart"
